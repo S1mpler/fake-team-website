@@ -18,7 +18,7 @@ Then, run command:
 
 Then, start a project with:
 
-`ng serve`
+`npm run ng serve`
 
 To see the webpage, open your browser on:
 
