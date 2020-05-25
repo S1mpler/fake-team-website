@@ -1,4 +1,9 @@
 # fake-team-website
+## Requirements
+```Node.js```
+You need to install the latest stable version of Node.js first!
+You can do it from here https://nodejs.org/en/
+
 
 ## Start project
 
@@ -10,9 +15,6 @@ Go to the root dir of the project and type:
 Then, run command:
 
 `npm install`
-
-NOTE: you need to install the latest stable version of Node.js first! You can do it from here https://nodejs.org/en/
-
 
 Then, start a project with:
 
