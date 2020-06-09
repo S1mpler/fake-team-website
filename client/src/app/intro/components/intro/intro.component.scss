@@ -1,0 +1,30 @@
+@import 'essentials';
+
+.section {
+  color: theme-color(light);
+  background: url('../../../../assets/images/intro_bg.png');
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.intro-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
+}
+
+.logo {
+  margin-left: rem(60px);
+}
+
+.h1 {
+  font-size: rem(72px);
+  font-weight: bold;
+}
+
+.text-small {
+  color: gray-color(50);
+}

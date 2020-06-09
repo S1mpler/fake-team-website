@@ -1,0 +1,33 @@
+<div class="video-container">
+
+  <video
+    class="video"
+    [src]="options.currentTutorial.videoSrc"
+    [controls]="showVideoControls"
+    (ended)="onVideoEnded()"
+    autoplay></video>
+
+  <div
+    [class.video-overlay--active]="showOverlay"
+    class="video-overlay">
+    <div class="video-overlay__controls mb-5">
+      <button
+        *ngIf="options.prevTutorial"
+        class="button button--primary button--shine"
+        [routerLink]="options.prevTutorial.uri">
+        Previous Tutorial: {{options.prevTutorial.title}}
+      </button>
+      <button
+        class="button button--primary button--shine"
+        (click)="onTestSelected()">
+        Test yourself
+      </button>
+      <button
+        *ngIf="options.nextTutorial"
+        class="button button--primary button--shine"
+        [routerLink]="options.nextTutorial.uri">
+        Next tutorial: {{options.nextTutorial.title}}
+      </button>
+    </div>
+  </div>
+</div>

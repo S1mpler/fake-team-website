@@ -1,0 +1,35 @@
+/* stylelint-disable */
+$white: #fff;
+$black: #000;
+
+$colors: (
+  purple: #693185,
+  dark-purple: #542c85,
+  blue: #1d6aae,
+  red: #ef3f3e,
+  orange: #fd7e14,
+  green: #55c400,
+  dark-blue: #2276a6,
+  almost-white: rgba(255, 255, 255, 0.3),
+);
+
+$theme-colors: (
+  primary: color(purple),
+  secondary: color(dark-purple),
+  success: color(green),
+  info: color(blue),
+  warning: color(orange),
+  danger: color(red),
+  light: $white,
+  dark: $black,
+  light-transparent: color(almost-white),
+);
+
+$grays: (
+  50: #999,
+  100: #ccc,
+  200: #ddd,
+  300: #f1f4f8,
+  400: #f8f8f8,
+);
+/* stylelint-enable */

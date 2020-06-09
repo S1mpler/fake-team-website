@@ -1,0 +1,122 @@
+.button {
+  min-width: rem(200px);
+  padding: rem($spacing-s);
+  text-align: center;
+  border-radius: rem($border-radius);
+  transition-duration: $transition-duration;
+
+  &--shine {
+    position: relative;
+    overflow: hidden;
+
+    &:focus {
+      outline: 0;
+    }
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      background: rgba(255, 255, 255, 0.5);
+      width: 60px;
+      height: 100%;
+      left: 0;
+      top: 0;
+      opacity: 0.5;
+      filter: blur(30px);
+      transform: translateX(-100px) skewX(-15deg);
+    }
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      background: rgba(255, 255, 255, 0.2);
+      width: 30px;
+      height: 100%;
+      left: 30px;
+      top: 0;
+      opacity: 0;
+      filter: blur(5px);
+      transform: translateX(-100px) skewX(-15deg);
+    }
+    &:hover {
+      background: #338033;
+      cursor: pointer;
+      &:before {
+        transform: translateX(350px) skewX(-15deg);
+        opacity: 0.6;
+        transition: 0.7s;
+      }
+      &:after {
+        transform: translateX(350px) skewX(-15deg);
+        opacity: 1;
+        transition: 0.7s;
+      }
+    }
+  }
+
+  &--transparent {
+    color: theme-color(light);
+    background: theme-color(light-transparent);
+
+    &:hover {
+      color: theme-color(primary);
+      background: theme-color(light);
+      text-decoration: none;
+    }
+  }
+
+  &--primary {
+    color: theme-color(light);
+    background: theme-color(primary);
+
+    &:hover {
+      background: theme-color(secondary);
+      text-decoration: none;
+    }
+  }
+
+  &--outline {
+    border: 1px solid gray-color(300);
+    transition: $transition-base;
+
+    &:hover {
+      background-color: theme-color(primary);
+      border: 1px solid theme-color(primary);
+
+      * {
+        color: theme-color(light);
+      }
+    }
+  }
+
+  &--inline {
+    display: inline;
+  }
+
+  &--shadow {
+    -webkit-box-shadow: -1px 0px 10px 2px rgba(255, 255, 255, 0.31);
+    -moz-box-shadow: -1px 0px 10px 2px rgba(255, 255, 255, 0.31);
+    box-shadow: -1px 0px 10px 2px rgba(255, 255, 255, 0.31);
+  }
+
+  &--big {
+    @include get-font-size(big-body);
+
+    min-width: rem(350px);
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  &[disabled] {
+    color: theme-color(light);
+    cursor: not-allowed;
+    background-color: gray-color(200);
+    border: 1px solid gray-color(200);
+
+    &:hover {
+      color: theme-color(light);
+      background-color: gray-color(200);
+      border: 1px solid gray-color(200);
+    }
+  }
+}

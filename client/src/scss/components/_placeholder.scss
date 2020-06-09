@@ -1,0 +1,46 @@
+.placeholder {
+  background-color: gray-color(300);
+
+  &--small {
+    width: rem(90px);
+    height: rem(29px);
+  }
+
+  &--base {
+    // width: 100%;
+    width: rem(150px);
+    height: rem(40px);
+  }
+
+  &--stretch {
+    width: 100%;
+  }
+
+  &__product {
+    height: rem(210px);
+  }
+
+  &__order {
+    height: rem(25px);
+  }
+
+  // &__row {
+  //   height: rem(25px);
+
+  //   &--100 {
+  //     width: 100%;
+  //   }
+
+  //   &--80 {
+  //     width: 80%;
+  //   }
+
+  //   &--90 {
+  //     width: 90%;
+  //   }
+
+  //   &--65 {
+  //     width: 65%;
+  //   }
+  // }
+}
