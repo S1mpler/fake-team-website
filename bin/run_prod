@@ -1,0 +1,6 @@
+#!/bin/bash
+set -e
+
+cd api
+
+_build/prod/rel/api/bin/api start

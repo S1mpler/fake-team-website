@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+
+npm install
+
+if [ "$GITHUB_ACTIONS" = "true" ]; then
+  npm run start:docker
+else
+  npm run start
+fi
