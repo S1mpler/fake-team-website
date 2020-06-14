@@ -6,7 +6,7 @@ ENV MIX_ENV=prod
 
 RUN apt-get update
 
-RUN cd client && npm install && ng build --prod
+RUN cd client && npm install && ng build
 
 RUN cd api && npm install
 
