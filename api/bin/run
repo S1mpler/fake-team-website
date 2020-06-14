@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+
+if [ -e .env ]; then
+  set -a
+  source .env
+  set +a
+fi
+
+npm install
+
+npm run watch

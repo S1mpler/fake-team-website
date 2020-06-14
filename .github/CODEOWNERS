@@ -1,0 +1,10 @@
+# These owners will be the default owners for everything in the repo.
+# Unless a later match takes precedence, this team/user
+# will be requested for review when someone opens a pull request.
+*       @S1mpler
+
+# Order is important; the last matching pattern takes the most precedence.
+# When someone opens a pull request that only modifies JS files, only this team/user
+# and not the global owner(s) will be requested for a review.
+/api/       @S1mpler
+/client/    @S1mpler

@@ -1,5 +1,17 @@
 <section class="section section-full-screen">
-  <div class="intro-container">
+  <video
+    #backgroundVideo
+    class="doors-video"
+    (ended)="redirectToTutorials()"
+    muted>
+    <source
+      src="../../../../assets/videos/door_opens_.mp4"
+      type="video/mp4">
+  </video>
+
+  <div
+    class="intro-container"
+    [class.intro-container--fade-out]="hideText">
     <div class="logo">
       <img
         src="../../../../assets/images/logo_black.png"
@@ -38,7 +50,7 @@
         data-aos-delay="200">
         <button
           class="button button--transparent button--shadow button--big button--shine"
-          (click)="startTutorials()">
+          (click)="onStartClicked()">
           Start
         </button>
       </div>

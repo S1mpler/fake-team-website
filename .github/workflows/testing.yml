@@ -1,0 +1,46 @@
+name: Testing
+on:
+  push:
+    branches:
+      - '**'
+      - '!master'
+      - '!acceptance'
+jobs:
+  api:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Build Docker images
+      run: docker-compose build api
+    - name: Install Elixir packages and compile
+      run: docker-compose run --rm api mix do deps.get, deps.compile
+    - name: Unit tests
+      run: docker-compose run --rm api bin/coverage
+    - name: Formatting
+      run: docker-compose run --rm api bin/format
+    - name: Credo
+      run: docker-compose run --rm api bin/credo
+    - name: Security
+      run: docker-compose run --rm api bin/security
+  client:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Build Docker images
+      run: docker-compose build client
+    - name: Install Node packages
+      run: docker-compose run --rm client yarn
+    - name: Unit tests
+      run: docker-compose run --rm client bin/jest
+    - name: TSLint
+      run: docker-compose run --rm client bin/tslint
+    - name: Stylelint
+      run: docker-compose run --rm client bin/stylelint
+  cypress:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Build Docker images
+      run: docker-compose build cypress
+    - name: E2E tests
+      run: docker-compose run --rm cypress bin/cypress
