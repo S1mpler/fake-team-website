@@ -8,6 +8,6 @@ ENV MIX_ENV=prod
 
 RUN cd client && npm install && npm run ng build
 
-RUN cd api && npm install && npm run start
+RUN cd api && npm install
 
 CMD bin/run_prod
