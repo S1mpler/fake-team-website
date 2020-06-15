@@ -48,3 +48,17 @@ jobs:
           dockerfile: prod.Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Deploy package to digitalocean
+        uses: appleboy/ssh-action@master
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        with:
+          host: ${{ secrets.DIGITAL_OCEAN_HOST_IP }}
+          username: ${{ secrets.DIGITAL_OCEAN_DROPLET_NAME }}
+          password: ${{ secrets.DIGITAL_OCEAN_DROPLET_PASSWORD }}
+          port: ${{ secrets.DIGITAL_OCEAN_SSH_PORT }}
+          script: |
+            docker stop $(docker ps -a -q)
+            docker pull s1mpler/fake-team-website-production:latest
+            docker run -dit -p 80:80 s1mpler/fake-team-website-production:latest
