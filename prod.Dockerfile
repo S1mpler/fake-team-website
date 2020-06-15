@@ -1,13 +1,13 @@
 FROM node:latest
 
+WORKDIR /app
+
 COPY . .
 
 ENV MIX_ENV=prod
 
-RUN apt-get update
-
 RUN cd client && npm install && ng build
 
-RUN cd api && npm install
+RUN cd api && npm install && npm run start
 
 CMD bin/run_prod

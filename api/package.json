@@ -20,6 +20,7 @@
   "homepage": "https://github.com/S1mpler/node-express-api#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "core-util-is": "^1.0.2",
     "cors": "^2.8.5",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",

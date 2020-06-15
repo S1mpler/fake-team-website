@@ -36,11 +36,3 @@ jobs:
       #   run: docker-compose run --rm client bin/tslint
       # - name: Stylelint
       #   run: docker-compose run --rm client bin/stylelint
-  # cypress:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@master
-  #     - name: Build Docker images
-  #       run: docker-compose build cypress
-  #     - name: E2E tests
-  #       run: docker-compose run --rm cypress bin/cypress
