@@ -1,6 +1,8 @@
 <div class="video-container">
 
   <video
+    #videoElement
+    [ngClass]="{'video--vertical': isVertical, 'video--horizontal': isHorizontal}"
     class="video"
     [src]="options.currentTutorial.videoSrc"
     [controls]="showVideoControls"
