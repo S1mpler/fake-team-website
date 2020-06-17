@@ -2,6 +2,7 @@
   <div *ngIf="getVideoOptions() | async as options">
     <app-video
       class="video"
+      [isActive]="showInteraction"
       [showVideoControls]="showVideoControls"
       [options]="options"
       (testSelected)="openTestScreen()"

@@ -2,10 +2,11 @@
 
   <video
     #videoElement
-    [ngClass]="{'video--vertical': isVertical, 'video--horizontal': isHorizontal}"
+    [ngClass]="{'video--vertical': isVertical, 'video--horizontal': isHorizontal, 'video--active': isActive}"
     class="video"
     [src]="options.currentTutorial.videoSrc"
     [controls]="showVideoControls"
+    (pause)="showOverlay = true"
     (ended)="onVideoEnded()"
     autoplay></video>
 

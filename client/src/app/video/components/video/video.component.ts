@@ -16,6 +16,7 @@ import { VideoOptions } from 'src/app/models/video-options.type';
 export class VideoComponent {
   @ViewChild('videoElement', { static: true }) videoElement: ElementRef;
 
+  @Input() isActive: boolean;
   @Input() showVideoControls: boolean;
   @Input() options: VideoOptions;
 
