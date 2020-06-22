@@ -55,6 +55,12 @@
             name="countries"
             id="countries">
             <option
+              [value]="null"
+              selected
+              disabled>
+              Select country
+            </option>
+            <option
               *ngFor="let country of countries"
               [value]="country.name">
               {{country.name}}
@@ -70,6 +76,12 @@
             name="ageGroup"
             id="ageGroup">
             <option
+              [value]="null"
+              selected
+              disabled>
+              Select your age group
+            </option>
+            <option
               *ngFor="let group of ageGroups"
               [value]="group">
               {{group}}
@@ -84,6 +96,12 @@
           <select
             name="educationLevels"
             id="educationLevels">
+            <option
+              [value]="null"
+              selected
+              disabled>
+              Select your education level
+            </option>
             <option
               *ngFor="let education of educationLevels"
               [value]="education">
