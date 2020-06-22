@@ -113,16 +113,9 @@
 
       <div class="text-right">
         <button
-          *ngIf="checkState === false"
           class="button button--primary button--shine"
           (click)="submitAnswers()">
           Submit answers
-        </button>
-        <button
-          *ngIf="checkState === true"
-          class="button button--primary button--shine"
-          (click)="showInteraction = false">
-          Exit interaction
         </button>
       </div>
     </div>

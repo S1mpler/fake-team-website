@@ -9,6 +9,7 @@ import {
   AnswerOptionModel,
 } from 'src/app/models/questionnaire.type';
 import { QuestionnaireService } from '../../services/questionnaire.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pros-and-cons-deepfake',
@@ -28,7 +29,8 @@ export class ProsAndConsDeepfakeComponent implements OnInit {
 
   constructor(
     private learningProcessService: LearningProcessService,
-    private questionnaireService: QuestionnaireService
+    private questionnaireService: QuestionnaireService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -78,6 +80,7 @@ export class ProsAndConsDeepfakeComponent implements OnInit {
 
   public submitAnswers(): void {
     this.checkState = true;
+    this.router.navigate(['/']);
   }
 
   public get countries() {
