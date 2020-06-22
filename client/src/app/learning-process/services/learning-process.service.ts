@@ -13,43 +13,27 @@ export class LearningProcessService {
   private learningMaterials = [
     {
       order: 1,
-      type: LearningMaterialType.WHAT_IS_AI,
-      title: 'What is AI?',
-      uri: '/tutorials/what-is-ai',
-      videoSrc:
-        'https://fake-team-storage.s3.eu-central-1.amazonaws.com/videos/1.mp4',
-    },
-    {
-      order: 2,
       type: LearningMaterialType.WHAT_IS_DEEPFAKE,
       title: 'What is Deepfake?',
       uri: '/tutorials/what-is-deepfake',
       videoSrc:
-        'https://fake-team-storage.s3.eu-central-1.amazonaws.com/videos/2.mp4',
+        'https://fake-team-storage.s3.eu-central-1.amazonaws.com/videos/what-is-deepfake.mp4',
     },
     {
-      order: 3,
-      type: LearningMaterialType.HOW_TO_STOP_DEEPFAKE,
+      order: 2,
+      type: LearningMaterialType.HOW_TO_SPOT_DEEPFAKE,
       title: 'How to spot a Deepfake?',
       uri: '/tutorials/how-to-spot-deepfake',
       videoSrc:
-        'https://fake-team-storage.s3.eu-central-1.amazonaws.com/videos/3.mp4',
+        'https://fake-team-storage.s3.eu-central-1.amazonaws.com/videos/how-to-spot-deepfake.mp4',
     },
     {
-      order: 4,
+      order: 3,
       type: LearningMaterialType.PROS_AND_CONS_DEEPFAKE,
       title: 'Pros and Cons of Deepfake',
       uri: '/tutorials/pros-and-cons-deepfake',
       videoSrc:
         'https://fake-team-storage.s3.eu-central-1.amazonaws.com/videos/4.mp4',
-    },
-    {
-      order: 5,
-      type: LearningMaterialType.DEEPFAKE_REGULATIONS,
-      title: 'Deepfake regulations',
-      uri: '/tutorials/deepfake-regulations',
-      videoSrc:
-        'https://fake-team-storage.s3.eu-central-1.amazonaws.com/videos/5.mp4',
     },
   ] as LearningMaterial[];
 

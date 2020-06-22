@@ -4,6 +4,12 @@ import {
   LearningMaterial,
 } from 'src/app/models/learning-material.type';
 import { LearningProcessService } from '../../services/learning-process.service';
+import {
+  QuestionAnswerModel,
+  AnswerOptionModel,
+} from 'src/app/models/questionnaire.type';
+import { QuestionnaireService } from '../../services/questionnaire.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pros-and-cons-deepfake',
@@ -17,10 +23,21 @@ export class ProsAndConsDeepfakeComponent implements OnInit {
   public showInteraction = false;
   public showVideoControls = true;
 
-  constructor(private learningProcessService: LearningProcessService) {}
+  public checkState = false;
+
+  public questions: QuestionAnswerModel[];
+
+  constructor(
+    private learningProcessService: LearningProcessService,
+    private questionnaireService: QuestionnaireService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.tutorial = this.learningProcessService.getByType(this.type);
+    this.questions = this.questionnaireService.getQuestionsByTutorial(
+      this.type
+    );
   }
 
   public onVideoEnded(): void {
@@ -33,5 +50,48 @@ export class ProsAndConsDeepfakeComponent implements OnInit {
 
   public getVideoOptions() {
     return this.learningProcessService.getVideoOptions(this.tutorial);
+  }
+
+  public selectOption(questionId: number, option: AnswerOptionModel): void {
+    if (this.checkState) {
+      return;
+    }
+
+    this.questions
+      .find((q) => q.id === questionId)
+      .options.find(
+        (o) => o.option === option.option
+      ).isSelected = this.questions.find((q) => q.id === questionId).multiAnswer
+      ? !this.questions
+          .find((q) => q.id === questionId)
+          .options.find((o) => o.option === option.option).isSelected
+      : true;
+
+    if (!this.questions.find((q) => q.id === questionId).multiAnswer) {
+      this.questions
+        .find((q) => q.id === questionId)
+        .options.forEach((o) => {
+          if (o.option !== option.option) {
+            o.isSelected = false;
+          }
+        });
+    }
+  }
+
+  public submitAnswers(): void {
+    this.checkState = true;
+    this.router.navigate(['/']);
+  }
+
+  public get countries() {
+    return this.questionnaireService.countries;
+  }
+
+  public get educationLevels() {
+    return this.questionnaireService.educationLevels;
+  }
+
+  public get ageGroups() {
+    return this.questionnaireService.ageGroups;
   }
 }

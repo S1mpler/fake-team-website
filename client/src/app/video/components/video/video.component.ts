@@ -16,13 +16,14 @@ import { VideoOptions } from 'src/app/models/video-options.type';
 export class VideoComponent {
   @ViewChild('videoElement', { static: true }) videoElement: ElementRef;
 
+  @Input() isActive: boolean;
   @Input() showVideoControls: boolean;
   @Input() options: VideoOptions;
 
-  public showOverlay = false;
-
   @Output() testSelected: EventEmitter<void> = new EventEmitter();
   @Output() videoEnded: EventEmitter<void> = new EventEmitter();
+
+  public showOverlay = true;
 
   public onVideoEnded(): void {
     this.showOverlay = true;
@@ -33,13 +34,20 @@ export class VideoComponent {
     this.testSelected.emit();
   }
 
-  public get isHorizontal(): boolean {
-    console.log(
-      'isHorizontal',
-      this.videoElement.nativeElement.width >=
-        this.videoElement.nativeElement.height
-    );
+  public playVideo(): void {
+    this.showOverlay = false;
+    this.videoElement.nativeElement.play();
+  }
 
+  public onPause(): void {
+    this.showOverlay = true;
+  }
+
+  public onPlaying(): void {
+    this.showOverlay = false;
+  }
+
+  public get isHorizontal(): boolean {
     return (
       this.videoElement.nativeElement.width >=
       this.videoElement.nativeElement.height
@@ -47,15 +55,6 @@ export class VideoComponent {
   }
 
   public get isVertical(): boolean {
-    console.log('width', this.videoElement.nativeElement.width);
-    console.log('height', this.videoElement.nativeElement.height);
-
-    console.log(
-      'isVertical',
-      this.videoElement.nativeElement.width <=
-        this.videoElement.nativeElement.height
-    );
-
     return (
       this.videoElement.nativeElement.width <=
       this.videoElement.nativeElement.height

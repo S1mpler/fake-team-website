@@ -1,7 +1,8 @@
-<section class="section-full-screen section-dark ">
+<section class="section-full-screen section-dark">
   <div *ngIf="getVideoOptions() | async as options">
     <app-video
       class="video"
+      [isActive]="showInteraction"
       [showVideoControls]="showVideoControls"
       [options]="options"
       (testSelected)="openTestScreen()"
@@ -11,10 +12,55 @@
   <div
     [class.interaction--active]="showInteraction"
     class="interaction">
-    <button
-      class="button button--primary button--shine ml-5 mt-5"
-      [routerLink]="'/tutorials/how-to-spot-deepfake'">
-      Go to the next tutorial
-    </button>
+    <div class="interaction__header m-5 row">
+      <div class="interaction__container col-12 d-flex justify-content-between align-items-center">
+        <h3 class="h3 m-0">{{tutorial.title}}</h3>
+        <div
+          class="cursor"
+          (click)="showInteraction = false">
+          Go back to video
+        </div>
+      </div>
+    </div>
+
+    <div class="interaction__container">
+      <div class="text-center">
+        <h4 class="h4 mb-4">{{questions[0].question}}</h4>
+        <button
+          *ngFor="let option of questions[0].options"
+          [class.button--selected]="option.isSelected"
+          class="button button--primary button--shine m-3"
+          (click)="selectOption(questions[0].id, option)">
+          {{option.option}}
+        </button>
+      </div>
+
+      <div class="text-center my-5">
+        <h4 class="h4 mb-4">{{questions[1].question}}</h4>
+        <button
+          *ngFor="let option of questions[1].options"
+          [class.button--selected]="option.isSelected"
+          [class.button--wrong]="option.isCorrect === false && checkState"
+          [class.button--correct]="option.isCorrect === true && checkState"
+          class="button button--primary button--shine m-3"
+          (click)="selectOption(questions[1].id, option)">
+          {{option.option}}
+        </button>
+      </div>
+      <div class="text-right">
+        <button
+          *ngIf="checkState === false"
+          class="button button--primary button--shine"
+          (click)="submitAnswers()">
+          Submit answers
+        </button>
+        <button
+          *ngIf="checkState === true"
+          class="button button--primary button--shine"
+          (click)="showInteraction = false">
+          Exit interaction
+        </button>
+      </div>
+    </div>
   </div>
 </section>

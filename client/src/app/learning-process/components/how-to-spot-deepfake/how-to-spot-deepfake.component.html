@@ -2,6 +2,7 @@
   <div *ngIf="getVideoOptions() | async as options">
     <app-video
       class="video"
+      [isActive]="showInteraction"
       [showVideoControls]="showVideoControls"
       [options]="options"
       (testSelected)="openTestScreen()"
@@ -11,10 +12,152 @@
   <div
     [class.interaction--active]="showInteraction"
     class="interaction">
-    <button
-      class="button button--primary button--shine ml-5 mt-5"
-      [routerLink]="'/tutorials/pros-and-cons-deepfake'">
-      Go to the next tutorial
-    </button>
+    <div class="interaction__header m-5 row">
+      <div class="interaction__container col-12 d-flex justify-content-between align-items-center">
+        <h3 class="h3 m-0">{{tutorial.title}}</h3>
+        <div
+          class="cursor"
+          (click)="showInteraction = false">
+          Go back to video
+        </div>
+      </div>
+    </div>
+
+    <div class="interaction__container">
+      <div class="text-center">
+        <div class="container">
+
+          <h4 class="h4 mb-4 text-bold">Can you tell which are real or fake?</h4>
+          <div class="d-flex d-flex justify-content-center flex-wrap">
+            <div class=" d-flex justify-content-center mb-5 mx-5">
+              <div class="video-card">
+                <video
+                  [src]="questions[0].src"
+                  controls></video>
+                <div class="controls">
+                  <button
+                    *ngFor="let option of questions[0].options"
+                    [class.button--selected]="option.isSelected"
+                    [class.button--wrong-full]="option.isCorrect === false && option.isSelected && checkState"
+                    [class.button--correct-full]="option.isCorrect === true && option.isSelected && checkState"
+                    class="button--toggle button--primary button--shine"
+                    (click)="selectOption(questions[0].id, option)">
+                    {{option.option}}
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class=" d-flex justify-content-center mb-5 mx-5">
+              <div class="video-card">
+                <video
+                  [src]="questions[1].src"
+                  controls></video>
+                <div class="controls">
+                  <button
+                    *ngFor="let option of questions[1].options"
+                    [class.button--selected]="option.isSelected"
+                    [class.button--wrong-full]="option.isCorrect === false && option.isSelected && checkState"
+                    [class.button--correct-full]="option.isCorrect === true && option.isSelected && checkState"
+                    class="button--toggle button--primary button--shine"
+                    (click)="selectOption(questions[1].id, option)">
+                    {{option.option}}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex d-flex justify-content-center flex-wrap">
+            <div class=" d-flex justify-content-center mb-5 mx-5">
+              <div class="video-card">
+                <video
+                  [src]="questions[2].src"
+                  controls></video>
+                <div class="controls">
+                  <button
+                    *ngFor="let option of questions[2].options"
+                    [class.button--selected]="option.isSelected"
+                    [class.button--wrong-full]="option.isCorrect === false && option.isSelected && checkState"
+                    [class.button--correct-full]="option.isCorrect === true && option.isSelected && checkState"
+                    class="button--toggle button--primary button--shine"
+                    (click)="selectOption(questions[2].id, option)">
+                    {{option.option}}
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class=" d-flex justify-content-center mb-5 mx-5">
+              <div class="video-card">
+                <video
+                  [src]="questions[3].src"
+                  controls></video>
+                <div class="controls">
+                  <button
+                    *ngFor="let option of questions[3].options"
+                    [class.button--selected]="option.isSelected"
+                    [class.button--wrong-full]="option.isCorrect === false && option.isSelected && checkState"
+                    [class.button--correct-full]="option.isCorrect === true && option.isSelected && checkState"
+                    class="button--toggle button--primary button--shine"
+                    (click)="selectOption(questions[3].id, option)">
+                    {{option.option}}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex d-flex justify-content-center flex-wrap">
+            <div class=" d-flex justify-content-center mb-5 mx-5">
+              <div class="video-card">
+                <video
+                  [src]="questions[4].src"
+                  controls></video>
+                <div class="controls">
+                  <button
+                    *ngFor="let option of questions[4].options"
+                    [class.button--selected]="option.isSelected"
+                    [class.button--wrong-full]="option.isCorrect === false && option.isSelected && checkState"
+                    [class.button--correct-full]="option.isCorrect === true && option.isSelected && checkState"
+                    class="button--toggle button--primary button--shine"
+                    (click)="selectOption(questions[4].id, option)">
+                    {{option.option}}
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class=" d-flex justify-content-center mb-5 mx-5">
+              <div class="video-card">
+                <video
+                  [src]="questions[5].src"
+                  controls></video>
+                <div class="controls">
+                  <button
+                    *ngFor="let option of questions[5].options"
+                    [class.button--selected]="option.isSelected"
+                    [class.button--wrong-full]="option.isCorrect === false && option.isSelected && checkState"
+                    [class.button--correct-full]="option.isCorrect === true && option.isSelected && checkState"
+                    class="button--toggle button--primary button--shine"
+                    (click)="selectOption(questions[5].id, option)">
+                    {{option.option}}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-right mt-5">
+        <button
+          *ngIf="checkState === false"
+          class="button button--primary button--shine"
+          (click)="submitAnswers()">
+          Submit answers
+        </button>
+        <button
+          *ngIf="checkState === true"
+          class="button button--primary button--shine"
+          (click)="showInteraction = false">
+          Exit interaction
+        </button>
+      </div>
+    </div>
   </div>
 </section>

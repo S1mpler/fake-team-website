@@ -5,6 +5,7 @@ $black: #000;
 $colors: (
   purple: #693185,
   dark-purple: #542c85,
+  darker-purple: #321b4e,
   blue: #1d6aae,
   red: #ef3f3e,
   orange: #fd7e14,
@@ -16,6 +17,7 @@ $colors: (
 $theme-colors: (
   primary: color(purple),
   secondary: color(dark-purple),
+  darken: color(darker-purple),
   success: color(green),
   info: color(blue),
   warning: color(orange),
