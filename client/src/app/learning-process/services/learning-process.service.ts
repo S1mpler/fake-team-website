@@ -21,7 +21,7 @@ export class LearningProcessService {
     },
     {
       order: 2,
-      type: LearningMaterialType.HOW_TO_STOP_DEEPFAKE,
+      type: LearningMaterialType.HOW_TO_SPOT_DEEPFAKE,
       title: 'How to spot a Deepfake?',
       uri: '/tutorials/how-to-spot-deepfake',
       videoSrc:

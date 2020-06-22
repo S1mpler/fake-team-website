@@ -5,32 +5,103 @@
     [ngClass]="{'video--vertical': isVertical, 'video--horizontal': isHorizontal, 'video--active': isActive}"
     class="video"
     [src]="options.currentTutorial.videoSrc"
-    [controls]="showVideoControls"
-    (pause)="showOverlay = true"
-    (ended)="onVideoEnded()"
-    autoplay></video>
+    [controls]="true"
+    (pause)="onPause()"
+    (playing)="onPlaying()"
+    (ended)="onVideoEnded()"></video>
 
   <div
     [class.video-overlay--active]="showOverlay"
     class="video-overlay">
-    <div class="video-overlay__controls mb-5">
-      <button
-        *ngIf="options.prevTutorial"
-        class="button button--primary button--shine"
-        [routerLink]="options.prevTutorial.uri">
-        Previous Tutorial: {{options.prevTutorial.title}}
-      </button>
-      <button
-        class="button button--primary button--shine"
-        (click)="onTestSelected()">
-        Test yourself
-      </button>
-      <button
-        *ngIf="options.nextTutorial"
-        class="button button--primary button--shine"
-        [routerLink]="options.nextTutorial.uri">
-        Next tutorial: {{options.nextTutorial.title}}
-      </button>
+
+    <div class="video-overlay__title mt-5 ml-5">
+      <h1 class="h1">{{options.currentTutorial.title}}</h1>
+    </div>
+
+    <a
+      class="play-btn cursor"
+      (click)="playVideo()">
+
+      <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In -->
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+        x="0px"
+        y="0px"
+        width="213.7px"
+        height="213.7px"
+        viewBox="0 0 213.7 213.7"
+        enable-background="new 0 0 213.7 213.7"
+        xml:space="preserve">
+
+        <polygon
+          class='triangle'
+          id="XMLID_18_"
+          fill="none"
+          stroke-width="7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          points="
+        73.5,62.5 148.5,105.8 73.5,149.1 "></polygon>
+
+        <circle
+          class='circle'
+          id="XMLID_17_"
+          fill="none"
+          stroke-width="7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          cx="106.8"
+          cy="106.8"
+          r="103.3"></circle>
+      </svg>
+    </a>
+
+    <div class="video-overlay__controls row px-5">
+      <div class="col-12 col-md-4 d-flex justify-content-start">
+        <div>
+          <div
+            *ngIf="options.prevTutorial"
+            class="action-name d-flex justify-content-start mb-3">
+            Previous Tutorial
+          </div>
+          <button
+            *ngIf="options.prevTutorial"
+            class="button button--primary button--shine"
+            [routerLink]="options.prevTutorial.uri">
+            {{options.prevTutorial.title}}
+          </button>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 d-flex justify-content-center">
+        <div>
+          <div class="action-name d-flex justify-content-center mb-3">Interaction</div>
+          <button
+            class="button button--primary button--shine"
+            (click)="onTestSelected()">
+            <div>{{options.currentTutorial.title}}</div>
+          </button>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 d-flex justify-content-end">
+        <div>
+          <div
+            *ngIf="options.nextTutorial"
+            class="action-name d-flex justify-content-end mb-3">
+            Next Tutorial
+          </div>
+          <button
+            *ngIf="options.nextTutorial"
+            class="button button--primary button--shine"
+            [routerLink]="options.nextTutorial.uri">
+            {{options.nextTutorial.title}}
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

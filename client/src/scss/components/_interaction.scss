@@ -4,9 +4,8 @@
   height: 0;
   width: 100vw;
   color: theme-color(light);
-  max-height: 100vh;
   background: theme-color(darken);
-  overflow: hidden;
+  overflow-y: auto;
   transition-duration: 0.5s;
   transition-timing-function: ease-out;
 

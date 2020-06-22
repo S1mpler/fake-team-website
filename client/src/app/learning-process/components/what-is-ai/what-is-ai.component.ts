@@ -11,7 +11,7 @@ import { LearningProcessService } from '../../services/learning-process.service'
   styleUrls: ['./what-is-ai.component.scss'],
 })
 export class WhatIsAiComponent implements OnInit {
-  private type = LearningMaterialType.WHAT_IS_AI;
+  private type = null;
 
   public tutorial: LearningMaterial;
   public showInteraction = false;

@@ -4,6 +4,7 @@
   text-align: center;
   border-radius: rem($border-radius);
   transition-duration: $transition-duration;
+  border: 2px solid transparent;
 
   &--shine {
     position: relative;
@@ -89,6 +90,13 @@
     }
   }
 
+  &--toggle {
+    width: 50%;
+    height: 100%;
+    transition-duration: $transition-duration;
+    outline: none;
+  }
+
   &--inline {
     display: inline;
   }
@@ -97,6 +105,41 @@
     -webkit-box-shadow: -1px 0px 10px 2px rgba(255, 255, 255, 0.31);
     -moz-box-shadow: -1px 0px 10px 2px rgba(255, 255, 255, 0.31);
     box-shadow: -1px 0px 10px 2px rgba(255, 255, 255, 0.31);
+  }
+
+  &--selected {
+    color: theme-color(primary);
+    background: theme-color(light);
+
+    &:hover {
+      background: gray-color(50);
+    }
+  }
+
+  &--wrong {
+    border-color: theme-color(danger);
+
+    &-full {
+      background: theme-color(danger);
+      color: theme-color(light);
+
+      &:hover {
+        background: theme-color(danger);
+      }
+    }
+  }
+
+  &--correct {
+    border-color: theme-color(success);
+
+    &-full {
+      background: theme-color(success);
+      color: theme-color(light);
+
+      &:hover {
+        background: theme-color(success);
+      }
+    }
   }
 
   &--big {
