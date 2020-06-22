@@ -12,10 +12,101 @@
   <div
     [class.interaction--active]="showInteraction"
     class="interaction">
-    <!-- <button
-      class="button button--primary button--shine ml-5 mt-5"
-      [routerLink]="'/tutorials/deepfake-regulations'">
-      Go to the next tutorial
-    </button> -->
+    <div class="interaction__header m-5 row">
+      <div class="interaction__container col-12 d-flex justify-content-between align-items-center">
+        <h3 class="h3 m-0">{{tutorial.title}}</h3>
+        <div
+          class="cursor"
+          (click)="showInteraction = false">
+          Go back to video
+        </div>
+      </div>
+    </div>
+
+    <div class="interaction__container">
+      <div class="text-center">
+        <h4 class="h4 mb-4">{{questions[0].question}}</h4>
+        <button
+          *ngFor="let option of questions[0].options"
+          [class.button--selected]="option.isSelected"
+          class="button button--primary button--shine m-3"
+          (click)="selectOption(questions[0].id, option)">
+          {{option.option}}
+        </button>
+      </div>
+
+      <div class="text-center my-5">
+        <h4 class="h4 mb-4">{{questions[1].question}}</h4>
+        <button
+          *ngFor="let option of questions[1].options"
+          [class.button--selected]="option.isSelected"
+          [class.button--wrong]="option.isCorrect === false && checkState"
+          [class.button--correct]="option.isCorrect === true && checkState"
+          class="button button--primary button--shine m-3"
+          (click)="selectOption(questions[1].id, option)">
+          {{option.option}}
+        </button>
+      </div>
+
+      <div class="row">
+        <div class="text-center my-5 col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+          <h4 class="h4 mb-4">Which country are you from?</h4>
+          <select
+            name="countries"
+            id="countries">
+            <option
+              *ngFor="let country of countries"
+              [value]="country.name">
+              {{country.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="text-center my-5 col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+          <h4 class="h4 mb-4">Which age group do you belong to?</h4>
+          <select
+            name="ageGroup"
+            id="ageGroup">
+            <option
+              *ngFor="let group of ageGroups"
+              [value]="group">
+              {{group}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="text-center my-5 col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+          <h4 class="h4 mb-4">What is your education level?</h4>
+          <select
+            name="educationLevels"
+            id="educationLevels">
+            <option
+              *ngFor="let education of educationLevels"
+              [value]="education">
+              {{education}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="text-right">
+        <button
+          *ngIf="checkState === false"
+          class="button button--primary button--shine"
+          (click)="submitAnswers()">
+          Submit answers
+        </button>
+        <button
+          *ngIf="checkState === true"
+          class="button button--primary button--shine"
+          (click)="showInteraction = false">
+          Exit interaction
+        </button>
+      </div>
+    </div>
   </div>
 </section>
