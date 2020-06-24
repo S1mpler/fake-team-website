@@ -33,7 +33,7 @@ export class LearningProcessService {
       title: 'Pros and Cons of Deepfake',
       uri: '/tutorials/pros-and-cons-deepfake',
       videoSrc:
-        'https://fake-team-storage.s3.eu-central-1.amazonaws.com/videos/4.mp4',
+        'https://fake-team-storage.s3.eu-central-1.amazonaws.com/videos/pros-and-cons-of-deepfake.mp4',
     },
   ] as LearningMaterial[];
 
