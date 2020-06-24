@@ -51,7 +51,7 @@ export class QuestionnaireService {
       {
         id: 2,
         from: LearningMaterialType.WHAT_IS_DEEPFAKE,
-        question: 'Select applications which use AI',
+        question: 'Which applications do you think use AI?',
         multiAnswer: true,
         options: [
           {
@@ -167,7 +167,7 @@ export class QuestionnaireService {
         from: LearningMaterialType.HOW_TO_SPOT_DEEPFAKE,
         multiAnswer: false,
         src:
-          'https://fake-team-storage.s3.eu-central-1.amazonaws.com/videos/realfakes/5.mp4',
+          'https://fake-team-storage.s3.eu-central-1.amazonaws.com/videos/realfakes/8.mp4',
         options: [
           {
             option: 'Real',
