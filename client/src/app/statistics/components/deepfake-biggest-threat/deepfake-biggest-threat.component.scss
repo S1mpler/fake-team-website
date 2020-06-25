@@ -1,0 +1,52 @@
+@import 'essentials';
+
+.bar-chart {
+  width: 100%;
+  height: 85px;
+  position: relative;
+
+  &__base {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    height: 40px;
+    border-radius: 4px;
+    background: #232837;
+  }
+
+  &__legend {
+    position: absolute;
+    height: 15px;
+    top: 0;
+    left: 45%;
+    transform: translateX(-50%);
+  }
+
+  &__legend-left {
+    position: absolute;
+    height: 15px;
+    top: 0;
+    left: 0;
+  }
+
+  &__legend-right {
+    position: absolute;
+    height: 15px;
+    top: 0;
+    right: 0;
+  }
+
+  &__accent {
+    position: absolute;
+    bottom: 0;
+    left: 45%;
+    height: 60px;
+    background: theme-color(light);
+    border-radius: 4px;
+    width: 8px;
+  }
+}
+
+.color-white {
+  color: theme-color(light);
+}

@@ -80,7 +80,7 @@ export class ProsAndConsDeepfakeComponent implements OnInit {
 
   public submitAnswers(): void {
     this.checkState = true;
-    this.router.navigate(['/']);
+    this.router.navigate(['/results']);
   }
 
   public get countries() {

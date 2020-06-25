@@ -1,0 +1,62 @@
+<section class="section section-full-screen section-dark">
+  <div class="container">
+    <div class="row"></div>
+    <div
+      class="close-btn cursor"
+      [routerLink]="['/']"></div>
+    <div class="logo my-5">
+      <img
+        class="cursor"
+        [routerLink]="['/']"
+        src="../../../../assets/images/logo_black.png"
+        alt="faketeam deepfake fake team">
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-7">
+        <p>
+          This page contains the result of interactive questionnaire
+          in a graphical representation. Currently, the displayed data
+          is mocked with static values for presentation purposes.
+        </p>
+      </div>
+    </div>
+
+    <div class="part">
+      <h2 class="h2">Number of answers</h2>
+      <app-answers-counter></app-answers-counter>
+    </div>
+
+    <div class="part">
+      <h2 class="h2">Never heard of Deepfake</h2>
+      <app-know-deepfake></app-know-deepfake>
+    </div>
+
+    <div class="part">
+      <h2 class="h2">
+        Should Deepfake be regulated by government?
+      </h2>
+      <app-deepfake-regulation></app-deepfake-regulation>
+    </div>
+
+    <div class="part">
+      <h2 class="h2">
+        Where does Deepfake technology pose the biggest threat?
+      </h2>
+      <app-deepfake-biggest-threat></app-deepfake-biggest-threat>
+    </div>
+
+    <div class="row part">
+      <div class="col-12 col-md-6">
+        <h2 class="h2">What are the users' age groups?</h2>
+        <app-age-groups></app-age-groups>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <h2 class="h2">What are the users' education levels?</h2>
+        <app-education-levels></app-education-levels>
+      </div>
+    </div>
+
+  </div>
+</section>

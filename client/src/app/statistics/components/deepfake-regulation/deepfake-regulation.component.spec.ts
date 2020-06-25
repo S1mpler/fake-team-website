@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WhatIsAiComponent } from './what-is-ai.component';
+import { DeepfakeRegulationComponent } from './deepfake-regulation.component';
 
-describe('WhatIsAiComponent', () => {
-  let component: WhatIsAiComponent;
-  let fixture: ComponentFixture<WhatIsAiComponent>;
+describe('DeepfakeRegulationComponent', () => {
+  let component: DeepfakeRegulationComponent;
+  let fixture: ComponentFixture<DeepfakeRegulationComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WhatIsAiComponent ]
+      declarations: [ DeepfakeRegulationComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WhatIsAiComponent);
+    fixture = TestBed.createComponent(DeepfakeRegulationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
