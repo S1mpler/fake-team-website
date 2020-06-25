@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "fake-team-db": {
+      "hosting": {
+        "client": [
+          "fake-team-db"
+        ]
+      }
+    }
+  }
+}

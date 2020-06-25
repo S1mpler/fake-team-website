@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { StatisticsModule } from './statistics/statistics.module';
 
 const routes: Routes = [
   {
@@ -14,7 +15,11 @@ const routes: Routes = [
       import('./learning-process/learning-process.module').then(
         (m) => m.LearningProcessModule
       ),
-    // pathMatch: 'full',
+  },
+  {
+    path: 'results',
+    loadChildren: () =>
+      import('./statistics/statistics.module').then((m) => m.StatisticsModule),
   },
 ];
 

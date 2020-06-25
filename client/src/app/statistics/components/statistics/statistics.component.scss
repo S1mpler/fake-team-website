@@ -1,0 +1,38 @@
+@import 'essentials';
+
+.container {
+  position: relative;
+  overflow-y: auto;
+}
+
+.part {
+  margin: rem(150px) 0;
+}
+
+.close-btn {
+  position: fixed;
+  top: rem(40px);
+  right: rem(40px);
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+}
+
+.close-btn:hover {
+  opacity: 1;
+}
+.close-btn:before,
+.close-btn:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: theme-color(light);
+}
+.close-btn:before {
+  transform: rotate(45deg);
+}
+.close-btn:after {
+  transform: rotate(-45deg);
+}
