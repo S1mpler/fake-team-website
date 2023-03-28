@@ -42,7 +42,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Build Docker image and publish to registry
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: s1mpler/fake-team-website-production
           dockerfile: prod.Dockerfile
